@@ -1,8 +1,8 @@
-# file: backup.sh
+# file: oaf.sh
 
 IMAGES="${PWD}/_assets/img"
 VIDEOS="${PWD}/_assets/video"
-LOG="${PWD}/obsolete_assets_finder.log"
+LOGFILE="${PWD}/oaf.log"
 count=0
 
 search() {
@@ -16,17 +16,16 @@ search() {
       filename=$(basename "$pathname")
       grep -q -R --exclude-dir={node_modules,dist,_site,.sass-cache,.git,assets} -i "$filename" ./
 
-      # $? == 0 if grep found something
-      # if it didn't found anything:
+      # if grep  found nothing:
       if [[ $? != 0 ]]; then
         # increase the obsolete assets counter
         count=$(expr $count + 1)
         # print out the full filepath
         echo -e "\e[1;31m $pathname \e[0m"
         # also write it in the file log
-        echo "$pathname" >>$LOG
-        # uncomment to also delete files
-        # rm "$pathname"
+        echo "$pathname" >>$LOGFILE
+        # uncomment to also delete the file
+        rm "$pathname"
       fi
     fi
 
@@ -56,5 +55,5 @@ echo "Found $count unused files."
 echo "A log is available at $LOG"
 echo "Goodbye!"
 
-# close the window in 30s if didn't manually close it
+# close the window in 30s
 sleep 30
