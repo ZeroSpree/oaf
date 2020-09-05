@@ -20,13 +20,14 @@ search() {
       # if it didn't found anything:
       if [[ $? != 0 ]]; then
         # increase the obsolete assets counter
-        count=`expr $count + 1`
+        count=$(expr $count + 1)
         # print out the full filepath
         echo -e "\e[1;31m $pathname \e[0m"
         # also write it in the file log
-        echo "$pathname" >> $LOG
+        echo "$pathname" >>$LOG
       fi
     fi
+
   done
 }
 
