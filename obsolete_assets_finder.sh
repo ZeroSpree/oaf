@@ -39,9 +39,6 @@ echo -e "\e[1;32m |                            | \e[0m"
 echo -e "\e[1;32m |                            | \e[0m"
 echo -e "\e[1;32m +----------------------------+ \e[0m"
 
-# we want to search the built site
-cd ${PWD}/_site
-
 # remove preexisting log, if any
 rm $LOG
 
