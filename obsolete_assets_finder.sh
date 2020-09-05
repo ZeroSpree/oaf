@@ -25,6 +25,8 @@ search() {
         echo -e "\e[1;31m $pathname \e[0m"
         # also write it in the file log
         echo "$pathname" >>$LOG
+        # uncomment to also delete files
+        # rm "$pathname"
       fi
     fi
 
