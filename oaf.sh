@@ -25,7 +25,7 @@ search() {
         # also write it in the file log
         echo "$pathname" >>$LOGFILE
         # uncomment to also delete the file
-        rm "$pathname"
+        # rm "$pathname"
       fi
     fi
 
